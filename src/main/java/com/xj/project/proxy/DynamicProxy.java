@@ -1,5 +1,8 @@
 package com.xj.project.proxy;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -13,24 +16,20 @@ import java.lang.reflect.Proxy;
  * @company 天极云智
  */
 public class DynamicProxy {
+    private  static  final Logger logger = LoggerFactory.getLogger(DynamicProxy.class);
 
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException {
-        /*ProxyInterface target = new DogImpl();
+        ProxyInterface target = new DogImpl();
         ProxyInterface proxy= (ProxyInterface)Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                System.out.println("开始代理");
+                logger.info("开始代理");
                 method.invoke(target, args);
-                System.out.println("结束代理");
+                logger.info("结束代理");
                 return null;
             }
         });
-        proxy.printAnimalName("hh");*/
-
-        Class c = DogImpl.class;
-        Method[] method = c.getMethods();
-        System.out.println(method[0]);
-        method[0].invoke(new DogImpl(),"jjj");
+        proxy.printAnimalName("hh");
 
     }
 }
