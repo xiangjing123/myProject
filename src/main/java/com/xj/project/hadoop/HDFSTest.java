@@ -1,5 +1,6 @@
 package com.xj.project.hadoop;
 
+import com.xj.project.log4j2.Log4jTwoTest;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.*;
 import org.apache.hadoop.fs.permission.FsPermission;
@@ -18,7 +19,7 @@ import java.net.URI;
  * @date 2018/2/7
  * @company 天极云智
  */
-public class HDFSTest {
+public class HDFSTest extends Log4jTwoTest {
     public static String nameNodeUrl="hdfs://47.95.240.71:9000";
     public static Configuration configuration=new Configuration();
     public static FileSystem fileSystem;

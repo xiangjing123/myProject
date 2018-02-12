@@ -20,5 +20,6 @@ public class Log4jTwoTest1 {
         logger.info("info level");
         logger.warn("warn level");
         logger.error("error level");
+
     }
 }

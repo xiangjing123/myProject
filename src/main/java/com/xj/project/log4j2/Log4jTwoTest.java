@@ -13,9 +13,12 @@ import org.apache.logging.log4j.Logger;
  * @company 天极云智
  */
 public class Log4jTwoTest {
-    static  Logger logger = LogManager.getLogger(Log4jTwoTest.class.getName());
 
-    public static void main(String[] args) {
+    protected String test;
+
+    Logger logger = LogManager.getLogger(Log4jTwoTest.class.getName());
+
+   /* public static void main(String[] args) {
 
 
         logger.trace("trace level");
@@ -26,5 +29,5 @@ public class Log4jTwoTest {
         logger.fatal("fatal level");
 
 
-    }
+    }*/
 }
