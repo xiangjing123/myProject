@@ -24,10 +24,10 @@ import java.net.URI;
 public class WordJob {
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
-        final String nameNodeUrl = "hdfs://hadoop.qiansitong.com:9000";
+        final String nameNodeUrl = "hdfs://192.168.139.112:9000";
         conf.set(CommonConfigurationKeysPublic.FS_DEFAULT_NAME_KEY, nameNodeUrl);
       //  conf.set("dfs.client.use.datanode.hostname","hadoop.com");
-        System.setProperty("hadoop.home.dir", "D:\\hadoop-plugin");
+        System.setProperty("hadoop.home.dir", "D:\\hadoop-plugin");//插件路径
       /*  conf.set("mapreduce.framework.name", "yarn");
         conf.set("yarn.resourcemanager.address", "hadoop.com:8050");*/
 
@@ -39,7 +39,7 @@ public class WordJob {
         FileInputFormat.addInputPath(job, new Path("/hdfs/word.txt"));
         // 任务计算结果的而输出路径，如果输出目录已经存在，就删除
         final Path outputPath = new Path("/out");
-        FileSystem fileSystem = FileSystem.get(new URI(nameNodeUrl),conf,"root");
+        FileSystem fileSystem = FileSystem.get(new URI(nameNodeUrl),conf,"xiangjing");
         if(fileSystem.exists(outputPath)){
             fileSystem.delete(outputPath, true);
         }

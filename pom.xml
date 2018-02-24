@@ -430,17 +430,17 @@
           <version>${hadoop.version}</version>
       </dependency>
 
-      <dependency>
-          <groupId>org.apache.hadoop</groupId>
-          <artifactId>hadoop-mapreduce-client-common</artifactId>
-          <version>${hadoop.version}</version>
-      </dependency>
+      <!--<dependency>
+           <groupId>org.apache.hadoop</groupId>
+           <artifactId>hadoop-mapreduce-client-common</artifactId>
+           <version>${hadoop.version}</version>
+       </dependency>
 
-      <dependency>
-          <groupId>org.apache.hadoop</groupId>
-          <artifactId>hadoop-mapreduce-client-app</artifactId>
-          <version>${hadoop.version}</version>
-      </dependency>
+        <dependency>
+           <groupId>org.apache.hadoop</groupId>
+           <artifactId>hadoop-mapreduce-client-app</artifactId>
+           <version>${hadoop.version}</version>
+       </dependency>-->
 
       <!-- 桥接：告诉commons logging使用Log4j2 -->
      <!-- <dependency>
