@@ -26,6 +26,8 @@ public class HDFSTest extends Log4jTwoTest {
     public static void init() throws Exception {
         Configuration configuration = new Configuration();
         configuration.set("fs.defaultFS", "hdfs://192.168.139.112:9000");
+        /*configuration.set("dfs.client.block.write.replace-datanode-on-failure.enable","true");
+        configuration.set("dfs.client.block.write.replace-datanode-on-failure.policy","NEVER");*/
         URI uri = new URI(nameNodeUrl);
         String user = "xiangjing";
         fileSystem = FileSystem.get(uri, configuration, user);
@@ -111,6 +113,7 @@ public class HDFSTest extends Log4jTwoTest {
 
     public static void main(String[] args) throws Exception {
         init();
+        append(new Path("/hdfs/test.txt"));
         /*mkdirs("/hdfs/test");*/
        //putFile("/hdfs/test/test.txt");
         //deleteFile(new Path("/hdfs/test"));
@@ -150,5 +153,12 @@ public class HDFSTest extends Log4jTwoTest {
         if(fileStatu.isFile()){
             IOUtils.copyBytes(fsDataInputStream,System.out,10,true);
         }
+    }
+
+    public static void append(Path path) throws IOException {
+       FSDataOutputStream fsDataOutputStream= fileSystem.append(path, 1024);
+        ByteArrayInputStream bais =new ByteArrayInputStream("\nhello he".getBytes());
+        IOUtils.copyBytes(bais,fsDataOutputStream,1024,true);
+        fileSystem.close();
     }
 }

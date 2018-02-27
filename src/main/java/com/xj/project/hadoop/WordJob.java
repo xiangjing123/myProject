@@ -28,9 +28,6 @@ public class WordJob {
         conf.set(CommonConfigurationKeysPublic.FS_DEFAULT_NAME_KEY, nameNodeUrl);
       //  conf.set("dfs.client.use.datanode.hostname","hadoop.com");
         System.setProperty("hadoop.home.dir", "D:\\hadoop-plugin");//插件路径
-      /*  conf.set("mapreduce.framework.name", "yarn");
-        conf.set("yarn.resourcemanager.address", "hadoop.com:8050");*/
-
         //1 构建job对象，因为hadoop中可能会同时运行多个任务，每个任务都会有一个名字，以示区分
         final String jobName = "word count";
         Job job = Job.getInstance(conf, jobName);
@@ -64,6 +61,7 @@ public class WordJob {
 
         // 提交任务并等待执行完成
         job.waitForCompletion(true);
+
     }
 
 }
