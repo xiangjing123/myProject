@@ -1,0 +1,1 @@
+window 远程开发，需要配置hadoop-plugin插件
