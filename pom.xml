@@ -449,6 +449,13 @@
           <version>${zookeeper.version}</version>
       </dependency>
 
+      <!--zookeeper 组件-->
+      <dependency>
+          <groupId>org.apache.curator</groupId>
+          <artifactId>curator-recipes</artifactId>
+          <version>4.0.0</version>
+      </dependency>
+
 
       <!-- 桥接：告诉commons logging使用Log4j2 -->
      <!-- <dependency>
