@@ -19,18 +19,18 @@ import java.util.Arrays;
  * @company 天极云智
  */
 public class HDFSTest extends Log4jTwoTest {
-    public static String nameNodeUrl = "hdfs://192.168.139.112:9000";
+    public static String nameNodeUrl = "hdfs://myha";
     public static Configuration configuration = new Configuration();
     public static FileSystem fileSystem;
 
     public static void init() throws Exception {
         Configuration configuration = new Configuration();
-        configuration.set("fs.defaultFS", "hdfs://192.168.139.112:9000");
+        configuration.set("fs.defaultFS", "hdfs://myha");
         /*configuration.set("dfs.client.block.write.replace-datanode-on-failure.enable","true");
         configuration.set("dfs.client.block.write.replace-datanode-on-failure.policy","NEVER");*/
         URI uri = new URI(nameNodeUrl);
         String user = "xiangjing";
-        fileSystem = FileSystem.get(uri, configuration, user);
+        fileSystem = FileSystem.get(uri, configuration,user);
         System.out.println(fileSystem);
     }
 
@@ -113,12 +113,12 @@ public class HDFSTest extends Log4jTwoTest {
 
     public static void main(String[] args) throws Exception {
         init();
-        append(new Path("/hdfs/test.txt"));
+      //  append(new Path("/hdfs/test.txt"));
         /*mkdirs("/hdfs/test");*/
        //putFile("/hdfs/test/test.txt");
         //deleteFile(new Path("/hdfs/test"));
        // download(new Path("/hdfs/word.txt"));
-       // listFiles(new Path("/"));
+        listFiles(new Path("/"));
         // mkdirs("/hdfs/xj1");
 
     }
